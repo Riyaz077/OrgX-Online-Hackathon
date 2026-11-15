@@ -1,154 +1,147 @@
-# 'OrgX' Online-Hackathon
-**AI-Driven Impulsive Spending Risk Detection System**
+# AI-Driven Impulsive Spending Risk Detection System
 
-**Detecting Financial Impulse Behaviour in Young Adults**
+**OrgX – Online Hackathon**
 
-# 📌 Project Overview
+## Project Overview
 
-This project presents an AI-based behavioural analytics system designed to detect and predict impulsive spending behaviour among young adults using transaction-level data. The system integrates Behavioural Finance principles with machine learning techniques to identify unstable expenditure patterns and generate actionable financial recommendations.
+This project focuses on identifying and analysing impulsive spending behaviour among young adults using transaction-level data and machine learning.
 
-The goal is not only to predict high-risk spending behaviour but also to promote financial literacy through personalized nudging interventions.
+The system combines behavioural finance concepts with predictive analytics to identify unusual spending patterns, estimate individual spending risk, and generate personalized financial recommendations.
 
-# 🎯 Problem Statement
+Beyond risk prediction, the project aims to encourage better financial habits through timely and practical interventions.
 
-Young adults often exhibit unstable and impulsive spending patterns influenced by emotional triggers and timing factors such as late-night purchases and end-of-month spending spikes. These behaviours can negatively impact long-term financial well-being.
+## Problem Statement
 
-This project aims to detect such behavioural patterns using machine learning and provide proactive intervention strategies.
+Young adults may develop inconsistent spending habits due to emotional decisions, frequent purchases, late-night transactions, and increased spending towards the end of the month.
 
-# 📊 Dataset Information
+These patterns can affect their ability to manage budgets and maintain financial stability.
 
-Dataset Type: Synthetic
+This project addresses the problem by developing a machine learning-based system that analyses spending behaviour, identifies potential financial risks, and suggests appropriate corrective actions.
 
-Reason: Real transaction-level behavioural datasets are private and confidential due to financial data protection regulations.
+## Dataset Information
 
-How Dataset Was Generated:
-The dataset was simulated using realistic financial behaviour assumptions:
+**Dataset Type:** Synthetic transaction-level dataset
 
-Normal distribution for average spending
+Real-world financial transaction data is generally restricted due to privacy and confidentiality concerns. Therefore, a synthetic dataset was created using assumptions based on common consumer spending patterns.
 
-Higher probability of impulse purchases in entertainment, shopping, travel, and food delivery categories
+**Data Generation Approach:**
 
-Increased spending probability during late-night hours (10 PM – 4 AM)
+- Normal distributions were used to simulate average spending behaviour.
+- Higher probabilities of impulse purchases were assigned to entertainment, shopping, travel, and food delivery categories.
+- Increased spending activity was simulated during late-night hours (10 PM–4 AM).
+- Additional spending intensity was introduced towards the end of each month (25th onwards).
 
-Higher spending intensity towards end-of-month (25th onwards)
+## Feature Engineering
 
-# ⚙️ Feature Engineering
+The following features were extracted and created to capture different aspects of spending behaviour.
 
-**Time-Based Features:**
+**Time-Based Features**
+- Month
+- Day
+- Hour
+- Day of Week
+- Late-Night Indicator
+- End-of-Month Indicator
+- Weekend Indicator
 
-•	Month
+**Behavioural Features**
+- Impulse Category Detection
+- Impulse Spending Ratio
+- Average Spending per User
+- Spending Frequency Volatility
 
-•	Day
+**Model-Derived Features**
+- Predicted Risk Probability
+- Behaviour Cluster Label
+- Composite Impulse Risk Score (0–100)
 
-•	Hour
-
-•	Day of Week
-
-•	Late-Night Indicator
-
-•	End-of-Month Indicator
-
-•	Weekend Indicator
-
-**Behavioural Features:**
-
-•	Impulse Category Detection
-
-•	Impulse Spending Ratio
-
-•	Average Spending per User
-
-•	Spending Frequency Volatility
-
-**Model-Derived Features:**
-
-•	Predicted Risk Probability
-
-•	Behaviour Cluster Label
-
-•	Composite Impulse Risk Score (0–100)
-
-# 🤖 Models Used
+## Machine Learning Models
 
 **1. Random Forest Classifier**
 
-•	Predicts probability of high-risk impulsive spending
+Used to estimate the probability of high-risk impulsive spending.
 
-•	Handles nonlinear behavioural patterns
-
-•	Contributes 40% weight to final risk score
+- Identifies nonlinear relationships in spending patterns.
+- Evaluates multiple behavioural and transaction-level features.
+- Contributes 40% to the final composite risk score.
 
 **2. K-Means Clustering**
 
-Segments users into behavioural profiles:
+Used to group users according to their spending behaviour.
 
-•	Conservative Planner
+The model identifies four behavioural profiles:
 
-•	Impulsive Night-Owl
+- Conservative Planner
+- Impulsive Night-Owl
+- High-Frequency Shopper
+- Stable Balanced
 
-•	High-Frequency Shopper
+**3. Composite Impulse Risk Scoring**
 
-•	Stable Balanced
+A weighted scoring mechanism combines behavioural indicators and the model's predicted risk probability to generate a score between 0 and 100.
 
-**3. Composite Risk Scoring Model**
+**Risk Score Formula:**
 
-**Final Risk Score Formula:**
+```text
+Impulse Risk Score =
+    (Impulse Ratio × 0.30) +
+    (Late-Night Ratio × 0.20) +
+    (Frequency Volatility × 0.10) +
+    (Predicted Risk Probability × 0.40)
+```
 
-Impulse Risk Score = (Impulse Ratio × 30%) + (Late Night Ratio × 20%) + (Frequency Volatility × 10%) + (Predicted Risk Probability × 40%
+The behavioural inputs are normalized to ensure consistency before calculating the final score.
 
-# 🔔 Personalized Nudging System
+## Personalized Financial Nudging System
 
-A rule-based recommendation engine generates actionable financial nudges:
+A rule-based recommendation engine generates suggestions based on the user's spending behaviour and calculated risk level.
 
-•	High Risk (>75) → Budget Warning
+| Condition | Recommended Intervention |
+|---|---|
+| Risk Score above 75 | Budget warning |
+| High late-night spending | Suggest limiting late-night shopping activity |
+| End-of-month spending surge | Recommend automated savings |
+ 
+The purpose of this component is to convert model predictions into practical recommendations that encourage healthier spending habits.
 
-•	High Late-Night Spending → App Usage Restriction Suggestion
+## Key Findings
 
-•	End-of-Month Surge → Automated Savings Recommendation
+- Late-night purchases and end-of-month spending patterns are associated with higher impulse risk in the simulated dataset.
+- Most users fall within the medium-risk category.
+- High-Frequency Shoppers and Impulsive Night-Owls show higher average risk scores.
+- The personalized recommendation engine generates interventions based on individual risk patterns.
 
+## Technologies Used
 
-This ensures the system is action-oriented rather than purely predictive.
+**Programming Language**
+- Python
 
-# 📈 Key Findings
+**Data Processing and Analysis**
+- Pandas
+- NumPy
 
-•	Late-night and end-of-month spending significantly increase impulse risk.
+**Machine Learning**
+- Scikit-learn
+- Random Forest
+- K-Means Clustering
 
-•	Majority of users fall under medium-risk category.
+**Data Visualization**
+- Matplotlib
+- Seaborn
 
-•	High-Frequency Shoppers and Impulsive Night-Owls exhibit higher average risk scores.
+**Development Environment**
+- Jupyter Notebook
 
-•	Personalized nudges align closely with risk severity.
+## Future Scope
 
-# 🚀 Future Scope
+- Integration with real-time banking APIs, subject to user consent and data privacy requirements.
+- LSTM-based models for sequential spending behaviour analysis.
+- Explainable AI techniques using SHAP and LIME.
+- Adaptive recommendations based on changing spending habits.
+- Integration with personal financial health assessment systems.
 
-•	Real-time banking API integration
+## Author
 
-•	LSTM-based time-series risk prediction
-
-•	Explainable AI using SHAP/LIME
-
-•	Adaptive AI-driven nudging system
-
-•	Integration with financial health index systems
-
-# 🛠️ Technologies Used
-
-•	Python
-
-•	Pandas
-
-•	NumPy
-
-•	Scikit-learn
-
-•	Matplotlib / Seaborn
-
-•	Jupyter Notebook
-
-# 📜 License
-
-MIT License
-
-
-
-
+**Mohamed Riyaz S.**  
+Integrated M.Tech, Computer Science and Engineering (Business Analytics)  
+VIT Chennai
