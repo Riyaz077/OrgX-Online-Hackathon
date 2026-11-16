@@ -1,6 +1,6 @@
-# AI-Driven Impulsive Spending Risk Detection System
+# **OrgX – Online Hackathon**
 
-## **OrgX – Online Hackathon**
+## AI-Driven Impulsive Spending Risk Detection System
 
 ## Project Overview
 
