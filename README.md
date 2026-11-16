@@ -4,11 +4,7 @@
 
 ## Project Overview
 
-This project focuses on identifying and analysing impulsive spending behaviour among young adults using transaction-level data and machine learning.
-
-The system combines behavioural finance concepts with predictive analytics to identify unusual spending patterns, estimate individual spending risk, and generate personalized financial recommendations.
-
-Beyond risk prediction, the project aims to encourage better financial habits through timely and practical interventions.
+This project focuses on identifying and analysing impulsive spending behaviour among young adults using transaction-level data and machine learning. The system combines behavioural finance concepts with predictive analytics to identify unusual spending patterns, estimate individual spending risk, and generate personalized financial recommendations. Beyond risk prediction, the project aims to encourage better financial habits through timely and practical interventions.
 
 ## Problem Statement
 
